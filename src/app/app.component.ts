@@ -12,24 +12,40 @@ export class AppComponent {
   numeros: any;
   num: any;
   result: any;
+  visibility: any;
 
 
   ngOnInit() {
     this.times = 0;
     this.numeros = [];
-    this.num = [];
+    this.visibility = false;
   }
 
 
 // tslint:disable-next-line: typedef
 adicionar(){
+  this.numeros.indexOf(this.numbers);
+
+  if (this.numeros.indexOf(this.numbers) !== -1){
+    alert('Existe o mesmo numero adicionado na lista');
+    return;
+
+  }
+
+  if (this.times === 10){
+    alert('Favor limpar a lista para adicionar mais numeros');
+    return;
+  }
+
   this.numeros.push(this.numbers);
   this.times += 1;
-  console.log(this.numeros);
+
+
+
   if (this.times === 10){
       this.numeros.sort(this.showNumbers);
-      console.log(this.numeros);
       this.result = this.numeros;
+      this.visibility = true;
   }
   }
 
@@ -38,6 +54,11 @@ adicionar(){
   return (a - b);
   }
 
+
+  clearList(){
+    // tslint:disable-next-line: deprecation
+    document.location.reload(true);
+  }
 
 
 

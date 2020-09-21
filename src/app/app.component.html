@@ -3,10 +3,26 @@
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 </head>
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<div class="row">
+  <div class="col-3">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+    </div>
+  </div>
+
+
+
+<div class="jumbotron">
 <div class="numeros">
 <div class="my-card__media" *ngFor="let numer of result">
   <div class="mdc-card__media-content">Numeros digitados em ordem crescente</div> <br>
   {{numer}}
+</div>
 </div>
 </div>
 
@@ -21,5 +37,10 @@
 <button class="foo-button mdc-button" (click)="adicionar()">
   <div class="mdc-button__ripple"></div>
   <span class="mdc-button__label">Adicionar</span>
+</button>
+
+<button *ngIf="visibility == true" class="foo-button mdc-button" (click)="clearList()">
+  <div class="mdc-button__ripple"></div>
+  <span class="mdc-button__label">Limpar lista</span>
 </button>
 </div>
